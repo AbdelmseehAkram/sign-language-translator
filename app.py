@@ -4,9 +4,18 @@ import numpy as np
 import streamlit as st
 from tensorflow.keras.models import load_model
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
+import gdown
+import os
 
-# Load the pre-trained model from Google Drive or local path
-model_path = r"model_alphabet_transfer.keras"  # تأكد من رفع الموديل هنا
+# Load the pre-trained model from Google Drive
+model_url = "https://drive.google.com/file/d/1mnasQGJhxbxGW1wotIT1nr1icNzz9xdC/view?usp=sharing"  # استبدل YOUR_FILE_ID_HERE برابط Google Drive المناسب
+model_path = "model_alphabet_transfer.keras"
+
+# تنزيل الموديل إذا لم يكن موجودًا
+if not os.path.exists(model_path):
+    with st.spinner("Downloading model from Google Drive..."):
+        gdown.download(model_url, model_path, quiet=False)
+
 model = load_model(model_path)
 class_labels = ['A', 'B', 'Blank', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
