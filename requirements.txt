@@ -1,4 +1,4 @@
-opencv-python-headless==4.8.0.76
-numpy
-streamlit
-tensorflow
+opencv-python-headless>=4.5.64
+tensorflow>=2.10.0
+streamlit>=1.22.0
+numpy>=1.23.5
