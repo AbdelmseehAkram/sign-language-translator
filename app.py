@@ -2,29 +2,11 @@ import av
 import cv2
 import numpy as np
 import streamlit as st
-import requests
-import os
 from tensorflow.keras.models import load_model
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
 
-# Function to download the model from Google Drive
-def download_model_from_drive():
-    drive_url = "https://drive.google.com/file/d/1mnasQGJhxbxGW1wotIT1nr1icNzz9xdC/view?usp=sharing"
-    local_model_path = "model_alphabet_transfer.keras"
-    
-    if not os.path.exists(local_model_path):
-        st.info("Downloading model from Google Drive, please wait...")
-        response = requests.get(drive_url)
-        if response.status_code == 200:
-            with open(local_model_path, "wb") as file:
-                file.write(response.content)
-            st.success("Model downloaded successfully!")
-        else:
-            st.error("Failed to download the model. Please check the Drive URL.")
-    return local_model_path
-
-# Load the pre-trained model
-model_path = download_model_from_drive()
+# Load the pre-trained model from Google Drive or local path
+model_path = r"model_alphabet_transfer.keras"  # تأكد من رفع الموديل هنا
 model = load_model(model_path)
 class_labels = ['A', 'B', 'Blank', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
@@ -63,5 +45,9 @@ class SignLanguageTransformer(VideoTransformerBase):
 
         return cv2.cvtColor(frame_rgb, cv2.COLOR_RGB2BGR)
 
-# Start the WebRTC streamer
-webrtc_streamer(key="sign-language-detector", video_transformer_factory=SignLanguageTransformer)
+# Start the WebRTC streamer with media constraints to ensure compatibility
+webrtc_streamer(
+    key="sign-language-detector", 
+    video_transformer_factory=SignLanguageTransformer, 
+    media_stream_constraints={"video": True, "audio": False}
+)
