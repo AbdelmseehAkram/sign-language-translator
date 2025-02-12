@@ -19,6 +19,7 @@ def load_my_model():
             gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
     return load_model(MODEL_PATH, compile=False)
 
+# Load model
 model = load_my_model()
 class_labels = ['A', 'B', 'Blank', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
@@ -43,13 +44,16 @@ class SignLanguageTransformer(VideoTransformerBase):
         try:
             # Convert frame to numpy array
             img = frame.to_ndarray(format="bgr24")
-            
+            print("Shape before processing:", img.shape)  # Debugging
+
             # Make prediction
             input_tensor = self._preprocess(img)
+            print("Shape after processing:", input_tensor.shape)  # Debugging
+
             preds = self.model.predict(input_tensor)
             class_idx = np.argmax(preds)
             confidence = np.max(preds)
-            
+
             # Add prediction overlay
             label = f"{self.class_labels[class_idx]} ({confidence:.2f})"
             cv2.putText(
@@ -74,5 +78,5 @@ ctx = webrtc_streamer(
     mode=WebRtcMode.SENDRECV,
     video_transformer_factory=SignLanguageTransformer,
     media_stream_constraints={"video": True, "audio": False},
-    async_processing=True,
+    async_processing=False,  # Disabled async processing to avoid issues
 )
