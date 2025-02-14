@@ -3,7 +3,7 @@ streamlit-webrtc==0.45.0
 opencv-python-headless
 numpy==1.23.5
 cvzone==1.5.6
-mediapipe==0.9.0
+mediapipe==0.10.21
 keras==2.12.0
 tensorflow==2.12.0
 pyttsx3==2.90
