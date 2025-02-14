@@ -1,5 +1,7 @@
 import streamlit as st
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
+import subprocess
+subprocess.run(["pip", "install", "opencv-python-headless"])
 import cv2
 import numpy as np
 from cvzone.HandTrackingModule import HandDetector
