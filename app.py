@@ -7,6 +7,10 @@ from keras.models import load_model
 import pyttsx3
 from string import ascii_uppercase
 import enchant
+import os
+
+# حل مشكلة libGL.so.1
+os.system("apt-get update && apt-get install -y libgl1-mesa-glx")
 
 # إعداد المكونات الأساسية
 model = load_model('cnn8grps_rad1_model.h5')
@@ -49,7 +53,7 @@ class SignLanguageTranslator(VideoTransformerBase):
                     os = ((400 - w) // 2) - 15
                     os1 = ((400 - h) // 2) - 15
                     
-                    # رسم الخطوط (نفس الكود الأصلي)
+                    # رسم الخطوط
                     connections = [
                         (0, 4), (5, 8), (9, 12), (13, 16), (17, 20),
                         (5, 9), (9, 13), (13, 17), (0, 5), (0, 17)
