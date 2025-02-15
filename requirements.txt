@@ -1,11 +1,13 @@
 streamlit==1.12.2
 streamlit-webrtc==0.43.4
-opencv-python-headless==4.5.5.64  # إصدار مُختبر
+opencv-python-headless==4.5.5.64
 cvzone==1.5.3
 tensorflow==2.10.0
 keras==2.10.0
 pyttsx3==2.90
 pyenchant==3.2.2
-numpy==1.23.5
+numpy==1.23.5  # إصدار متوافق مع mediapipe
 altair==4.2.0
 jsonschema==3.2.0
+protobuf>=4.25.3,<5  # متطلب لـ mediapipe
+mediapipe==0.10.21  # إصدار يعمل مع Protobuf 4.x
