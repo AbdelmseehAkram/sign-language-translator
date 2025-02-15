@@ -5,7 +5,7 @@ subprocess.run(["pip", "install", "opencv-python-headless"])
 import cv2
 import numpy as np
 from cvzone.HandTrackingModule import HandDetector
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 import pyttsx3
 from string import ascii_uppercase
 import enchant
