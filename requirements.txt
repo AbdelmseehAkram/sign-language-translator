@@ -1,9 +1,11 @@
-streamlit==1.30.0
-streamlit-webrtc==0.46.0
-mediapipe==0.10.9
-numpy==2.2.3
-pillow==10.2.0
-tensorflow==2.13.0
+streamlit==1.12.2
+streamlit-webrtc==0.43.4
+opencv-python-headless==4.5.5.64  # إصدار مُختبر
+cvzone==1.5.3
+tensorflow==2.10.0
+keras==2.10.0
 pyttsx3==2.90
 pyenchant==3.2.2
-opencv-python-headless==4.11.0.86
+numpy==1.23.5
+altair==4.2.0
+jsonschema==3.2.0
