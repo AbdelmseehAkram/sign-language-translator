@@ -1,13 +1,13 @@
-streamlit>=1.32.0  # إصدار حديث متوافق مع Python 3.12
-streamlit-webrtc==0.48.0  # إصدار محدث
-opencv-python-headless==4.9.0.80  # إصدار حديث مع دعم Python 3.12
-cvzone==1.6.0  # إصدار محدث
-tensorflow==2.16.1  # إصدار يدعم Python 3.12
-keras==3.3.3  # إصدار متوافق مع TensorFlow 2.16
+streamlit==1.32.0
+streamlit-webrtc==0.47.9  # آخر إصدار متوفر على PyPI
+opencv-python-headless==4.9.0.80
+cvzone==1.6.0
+tensorflow==2.16.1
+keras==2.16.0  # إصدار متوافق مع TensorFlow 2.16
 pyttsx3==2.91
 pyenchant==3.2.2
-numpy==1.26.4  # إصدار متوافق مع TensorFlow 2.16
-altair==5.3.0  # إصدار حديث
+numpy==1.26.4
+altair==5.3.0
 jsonschema==4.21.1
-protobuf>=4.25.3,<5
+protobuf==4.25.3
 mediapipe==0.10.21
