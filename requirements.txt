@@ -7,3 +7,4 @@ tensorflow
 keras
 pyttsx3
 pyenchant
+mediapipe
