@@ -1,0 +1,9 @@
+streamlit
+streamlit-webrtc
+opencv-python
+numpy
+cvzone
+tensorflow
+keras
+pyttsx3
+pyenchant
