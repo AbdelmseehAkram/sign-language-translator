@@ -8,3 +8,4 @@ keras
 pyttsx3
 pyenchant
 mediapipe
+protobuf==4.25.6
